@@ -1,1 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte, Futuro Sustentável</title>
+    <style>
+        /* --- ESTILOS CSS (Cores do Corinthians & Tema Futebol) --- */
+        :root {
+            --cor-principal: #111111; /* Preto Alvinegro */
+            --cor-secundaria: #ffffff; /* Branco */
+            --cor-destaque: #e6e6e6; /* Cinza Claro */
+            --cor-gramado: #1e3d23; /* Verde de fundo para o "campo" de debate */
+            --texto-escuro: #111111;
+            --texto-claro: #ffffff;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--cor-destaque);
+            color: var(--texto-escuro);
+        }
+
+        /* Cabeçalho / Estádio */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)), 
+                        url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&q=80&w=1200') no-repeat center/cover;
+            color: var(--cor-secundaria);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--cor-secundaria);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-style: italic;
+            color: #b3b3b3;
+        }
+
+        /* Placar do Jogo / Menu */
+        .placar-container {
+            background-color: var(--cor-principal);
+            color: var(--cor-secundaria);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .botao-tatico {
+            background: transparent;
+            border: 2px solid var(--cor-secundaria);
+            color: var(--cor-secundaria);
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .botao-tatico:hover {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-principal);
+        }
+
+        /* Conteúdo Principal */
+        main {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .Arquibancada {
+            background-color: var(--cor-secundaria);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            border-left: 8px solid var(--cor-principal);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--cor-principal);
+            padding-bottom: 5px;
+        }
+
+        /* Grid dos "Times" (Agro e Familiar) */
+        .escalacao-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .escalacao-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card-time {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .card-time:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-time img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 20px;
+        }
+
+        .card-info h3 {
+            margin-bottom: 10px;
+            color: var(--cor-principal);
+        }
+
+        /* Seção Tática / Sustentabilidade */
+        .campo-tatico {
+            background-color: var(--cor-gramado);
+            color: var(--texto-claro);
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            border: 4px dashed var(--cor-secundaria);
+        }
+
+        .campo-tatico h2 {
+            border-bottom: 2px solid var(--cor-secundaria);
+            color: var(--cor-secundaria);
+        }
+
+        .campo-tatico p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--cor-principal);
+            color: var(--cor-secundaria);
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Agro Forte, Futuro Sustentável</h1>
+        <p>O Equilíbrio entre Produção e Meio Ambiente: O Verdadeiro Jogo de Equipe</p>
+    </header>
+
+    <div class="placar-container">
+        <button class="botao-tatico" onclick="rolarPara('introducao')">O Jogo</button>
+        <button class="botao-tatico" onclick="rolarPara('escalacao')">Os Times</button>
+        <button class="botao-tatico" onclick="rolarPara('tatica')">Estratégia Sustentável</button>
+    </div>
+
+    <main>
+        
+        <section id="introducao" class="Arquibancada">
+            <h2>Apito Inicial: O Desafio do Século</h2>
+            <p>No grande campeonato global da sobrevivência, garantir o alimento na mesa e preservar a nossa "casa" (o meio ambiente) exige uma tática perfeita. Não existe rivalidade: a segurança alimentar e o respeito à natureza jogam no mesmo lado do campo. O grande objetivo é o equilíbrio sustentável.</p>
+        </section>
+
+        <section id="escalacao" class="Arquibancada">
+            <h2>A Escalação: Forças que se Complementam</h2>
+            <p>Para vencer essa partida, o Brasil conta com a potência de dois grandes setores operando em posições diferentes, mas com o mesmo objetivo de abastecer o mercado.</p>
+            
+            <div class="escalacao-grid">
+                <div class="card-time">
+                    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad451?auto=format&fit=crop&q=80&w=600" alt="Tecnologia no Agronegócio">
+                    <div class="card-info">
+                        <h3>O Agronegócio (A Força de Ataque)</h3>
+                        <p>Responsável pelas grandes exportações e pela produção em larga escala. Utiliza alta tecnologia, drones, inteligência artificial e maquinários pesados para garantir a produtividade e a eficiência econômica nas grandes áreas produtivas.</p>
+                    </div>
+                </div>
+
+                <div class="card-time">
+                    <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb18865?auto=format&fit=crop&q=80&w=600" alt="Agricultura Familiar">
+                    <div class="card-info">
+                        <h3>A Agricultura Familiar (A Base da Defesa)</h3>
+                        <p>É a base que alimenta as famílias localmente, responsável pela maior parte dos alimentos frescos que chegam à mesa dos brasileiros (hortaliças, legumes e frutas). Atua com foco na diversidade de cultivos e na preservação das tradições da terra.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tatica" class="campo-tatico">
+            <h2>Esquema Tático: Sustentabilidade é o Gol</h2>
+            <p>Nenhum time vence jogando sozinho. O verdadeiro "Agro Forte" acontece quando a tecnologia de ponta do agronegócio se une às práticas de conservação e manejo da terra da agricultura familiar.</p>
+            <p><strong>A Meta de Jogo:</strong> Reduzir o desmatamento, otimizar o uso da água, implementar o plantio direto e adotar bioinsumos. Esse é o equilíbrio que garante a produção de hoje sem comprometer os recursos do amanhã.</p>
+            <button class="botao-tatico" onclick="aplaudir()">Aplaudir a Iniciativa</button>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Agro Sustentável Futebol Clube. Todos os direitos reservados.</p>
+        <p style="font-size: 0.8rem; color: #777; margin-top: 5px;">Inspirado na raça e tradição do manto alvinegro.</p>
+    </footer>
+
+    <script>
+        // Função para rolagem suave entre as seções (Estratégia de jogo)
+        function rolarPara(idSecao) {
+            const elemento = document.getElementById(idSecao);
+            if (elemento) {
+                elemento.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Função de interação simples com o usuário
+        function aplaudir() {
+            alert("⚽ Gol da Sustentabilidade! Obrigado por apoiar o equilíbrio entre produção e meio ambiente!");
+        }
+    </script>
+</body>
+</html>
